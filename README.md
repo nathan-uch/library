@@ -1,0 +1,3 @@
+This project is a library in which a user can add and remove books. The user has to input information about the book (title, author, pages and if they have read it or not). Then a book card is created and put in the library for the person to view their many books in one page. 
+
+This is a project for practicing JavaScript objects manipulation. Objects are created and used for storing a large amount of information with different categories or repeated items with different properties. which can be put in arrays. This allows for easy retrieval of the information from each object.
