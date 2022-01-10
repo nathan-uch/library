@@ -1,5 +1,5 @@
 body {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .libraryContainer {
@@ -15,12 +15,15 @@ body {
 }
 
 .bookCard {
+    font-size: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
     height: 250px;
     width: 200px;
-    border: solid 1px black;
+    border: solid 3px black;
     position: relative;
+    background-color: rgb(113, 190, 103)
 }
 
 .addBookBtn {
@@ -34,6 +37,18 @@ body {
     position: absolute;
     top: 230px;
     right: 0;
+}
+
+.bookRead {
+    position: absolute;
+    top: 228px;
+    right: 145px;
+}
+
+.readToggle {
+    position: absolute;
+    top: 231px;
+    right: 127px;
 }
 
 .popUpContainer {
@@ -61,7 +76,7 @@ body {
 }
 
 .addBookForm {
-    background-color:#F0E68C;
+    background-color: white;
     font-size: 25px;
     height: 350px;
     border: solid 2px black;

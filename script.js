@@ -12,7 +12,6 @@ const openForm = document.querySelector('.addBookBtn');
 const closeForm = document.querySelector('.closeForm');
 const resetBtn = document.querySelector('.resetBtn');
 
-
 function Book(title, author, pages, readOrNot) {
     this.title = title;
     this.author = author;
@@ -35,17 +34,40 @@ function createBookCard() {
             this.parentNode.remove();
         });
     };
+
+    let readToggle = document.createElement('input');
+    readToggle.classList.add('readToggle');
+    readToggle.type = 'checkbox';
+    readToggle.name = 'readCheck';
+    newBookCard.appendChild(readToggle);
     
+    Book.prototype.readBook = function() {
+        readToggle.checked = true;
+    }
+
+    let bookT = document.createElement('div');
+    bookT.classList.add('bookTitle')
+    let bookA = document.createElement('div');
+    bookA.classList.add('bookAuthor')
+    let bookP = document.createElement('div');
+    bookP.classList.add('bookPages')
+    let bookR = document.createElement('div');
+    bookR.classList.add('bookRead')
+    bookR.textContent = 'Read:';
+
     let currentBook = myLibrary[0];
+
     for (let k = 0; k < myLibrary.length; k++) {
+        bookT.textContent = 'Title: ' + currentBook.title;
+        bookA.textContent = 'Author: ' + currentBook.author;
+        bookP.textContent = 'Pages: ' + currentBook.pages;
+        newBookCard.appendChild(bookT);
+        newBookCard.appendChild(bookA);
+        newBookCard.appendChild(bookP);
+        newBookCard.appendChild(bookR);
+        
         if (currentBook.readOrNot == 'yes') {
-            let newBookInfo = document.createTextNode('Title: ' + currentBook.title + '. Author: ' + currentBook.author + '. Pages: ' + currentBook.pages + '. I have read this book.');
-            newBookCard.appendChild(newBookInfo);
-            return myLibrary;
-        } else if (currentBook.readOrNot == 'no') {
-            let newBookInfo = document.createTextNode('Title: ' + currentBook.title + '. Author: ' + currentBook.author + '. Pages: ' + currentBook.pages + '. I have NOT read this book.');
-            newBookCard.appendChild(newBookInfo);
-            return myLibrary;
+            currentBook.readBook();
         }
     }
 }
@@ -57,9 +79,13 @@ function addToLibrary(book) {
 
 submitBtn.addEventListener('click', () => {
     let newBook = new Book(title.value, author.value, pages.value, readOrNot.value);
+    console.log(newBook);
+    console.log(newBook.readOrNot);
+    newBook.prototype = Object.create(Book.prototype);
     addToLibrary(newBook);
     resetBtn.click();
     formContainer.style.display = "none";
+
 })
 
 openForm.addEventListener('click', () => {
@@ -70,11 +96,11 @@ closeForm.addEventListener('click', () => {
     formContainer.style.display = "none";
 })
 
-const theHungerGames = new Book('the Hunger Games', 'Suzanne Collins', '374', 'yes');
-addToLibrary(theHungerGames);
+//const theHungerGames = new Book('the Hunger Games', 'Suzanne Collins', '374', 'yes');
+//addToLibrary(theHungerGames);
 
-const toKillAMockingbird = new Book('To Kill a Mockingbird', 'Harper Lee', '284', 'yes');
-addToLibrary(toKillAMockingbird);
+// const toKillAMockingbird = new Book('To Kill a Mockingbird', 'Harper Lee', '284', 'yes');
+// addToLibrary(toKillAMockingbird);
 
-const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austenn', '384', 'no');
-addToLibrary(prideAndPrejudice);
+//const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austenn', '384', 'no');
+//addToLibrary(prideAndPrejudice);
