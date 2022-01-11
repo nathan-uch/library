@@ -3,7 +3,6 @@ let myLibrary = [];
 const title = document.querySelector('.title');
 const author = document.querySelector('.author');
 const pages = document.querySelector('.pages');
-const readOrNot = document.querySelector('.readOrNot');
 const bookGrid = document.querySelector('.bookGrid');
 const bookCard = document.querySelector('.bookCard');
 const submitBtn = document.querySelector('.submitBtn');
@@ -12,11 +11,20 @@ const openForm = document.querySelector('.addBookBtn');
 const closeForm = document.querySelector('.closeForm');
 const resetBtn = document.querySelector('.resetBtn');
 
-function Book(title, author, pages, readOrNot) {
+function doneReading() {
+    let yesOrNo = document.getElementsByName('readOrNot');
+    for (let j = 0; j < yesOrNo.length; j++) {
+        if (yesOrNo[j].checked) {
+            return yesOrNo[j].value;
+        }
+    }
+}
+
+function Book(title, author, pages, doneReading) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.readOrNot = readOrNot;
+    this.doneReading = doneReading;
 }
 
 function createBookCard() {
@@ -56,7 +64,7 @@ function createBookCard() {
     bookR.textContent = 'Read:';
 
     let currentBook = myLibrary[0];
-
+    
     for (let k = 0; k < myLibrary.length; k++) {
         bookT.textContent = 'Title: ' + currentBook.title;
         bookA.textContent = 'Author: ' + currentBook.author;
@@ -65,11 +73,13 @@ function createBookCard() {
         newBookCard.appendChild(bookA);
         newBookCard.appendChild(bookP);
         newBookCard.appendChild(bookR);
-        
-        if (currentBook.readOrNot == 'yes') {
-            currentBook.readBook();
-        }
     }
+
+    if (currentBook.doneReading == "yes") {
+        currentBook.readBook();
+    }
+    console.log(currentBook);
+
 }
 
 function addToLibrary(book) {
@@ -78,14 +88,11 @@ function addToLibrary(book) {
 }
 
 submitBtn.addEventListener('click', () => {
-    let newBook = new Book(title.value, author.value, pages.value, readOrNot.value);
-    console.log(newBook);
-    console.log(newBook.readOrNot);
+    let newBook = new Book(title.value, author.value, pages.value, doneReading());
     newBook.prototype = Object.create(Book.prototype);
     addToLibrary(newBook);
     resetBtn.click();
     formContainer.style.display = "none";
-
 })
 
 openForm.addEventListener('click', () => {
