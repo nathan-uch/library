@@ -10,7 +10,7 @@
 <body>
 
     <h1>Library</h1>
-    <h2>Your Current Books</h2>
+    <h2>Current Books</h2>
     <div class="libraryContainer">
         <div class="bookGrid">
         </div>
@@ -20,20 +20,32 @@
     <div class="formContainer">
 
         <form class="addBookForm">
-            <p>Add a New Book to Your Library</p>
+            <div class="formStyling"></div>
+            
+            <p class="formTitle">Add a New Book to Your Library</p>
+            
+            <div class="formQuestions">
+                <div class="q1"> 
+                    <label class="formLabel">Book Title:</label>
+                    <input class="title" type="text">
+                </div>
+                
+                <div class="q2"> 
+                    <label class="formLabel">Author:</label>
+                    <input class="author" type="text">
+                </div>
+                
+                <div class="q3"> 
+                    <label class="formLabel">Pages:</label>
+                    <input class="pages" type="number" min="1" max="2500">
+                </div>
 
-            <label class="formLabel">Book Title:</label>
-            <input class="title" type="text">
-
-            <label class="formLabel">Author:</label>
-            <input class="author" type="text">
-
-            <label class="formLabel">Pages:</label>
-            <input class="pages" type="number" min="1" max="2500">
-
-            <label class="formLabel">Have you read this book?</label>
-            <input type="radio" name="readOrNot" class="yesNo" value="yes"> Yes
-            <input type="radio" name="readOrNot" class="yesNo" value="no"> No
+                <div class="q4"> 
+                    <label class="formLabel">Have you read this book?</label>
+                    <input type="radio" name="readOrNot" class="yesNo" value="yes"> Yes
+                    <input type="radio" name="readOrNot" class="yesNo" value="no"> No
+                </div>
+            </div>
 
             <input class="submitBtn" type="button" value="Add to Library">
 

@@ -2,9 +2,19 @@ body {
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
+h1 {
+    font-size: 40px;
+    margin: 20px 0 10px 0;
+    text-align: center;
+}
+
+h2, .addBookBtn {
+    margin: 0 20px;
+}
 .libraryContainer {
     display: flex;
     width: 100%;
+    margin: 20px;
 }
 
 .bookGrid {
@@ -15,15 +25,49 @@ body {
 }
 
 .bookCard {
-    font-size: 20px;
+    text-align: center;
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     height: 250px;
     width: 200px;
-    border: solid 3px black;
+    border: solid 1px black;
+    border-radius: 3px;
     position: relative;
-    background-color: rgb(113, 190, 103)
+    background: rgb(113, 190, 103);
+}
+
+.bookInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    font-size: 18px;
+    height: 60%;
+    width: 125px;
+    padding: 10px;
+    background: rgb(241, 240, 240);
+    margin-top: 20px;
+}
+
+.bookTitle {
+    font-size: 22px;
+    text-decoration: underline;
+    margin-right: 0 5px;
+}
+
+.bookAuthor {
+    margin: 0 5px;
+}
+
+.bookLook {
+    height: 250px;
+    width: 10px;
+    background: linear-gradient(to right, rgb(55, 105, 48), rgb(113, 190, 103) 50%,rgb(113, 190, 103) 75%, rgb(65, 126, 57) 80%);
 }
 
 .addBookBtn {
@@ -35,20 +79,22 @@ body {
     width: 70px;
     height: 20px;
     position: absolute;
-    top: 230px;
-    right: 0;
+    top: 220px;
+    right: 12px;
 }
 
 .bookRead {
     position: absolute;
-    top: 228px;
-    right: 145px;
+    top: 220px;
+    right: 130px;
 }
 
 .readToggle {
     position: absolute;
-    top: 231px;
-    right: 127px;
+    top: 218px;
+    right: 109px;
+    height: 20px;
+    width: 15px;
 }
 
 .popUpContainer {
@@ -61,7 +107,6 @@ body {
     align-items: center;
 }
 
-
 .formContainer {
     display: none;
     position: fixed;
@@ -73,22 +118,37 @@ body {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .addBookForm {
     background-color: white;
     font-size: 25px;
-    height: 350px;
     border: solid 2px black;
     margin: 20% auto;
-    width: 75%;
+    width: 400px;
+    height: 900px;
     flex-wrap: wrap;
     justify-items: flex-start;
     align-items: center;
+}
+
+.formQuestions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.q1, .q2, .q3, .q4 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .cancel {
     float: right;
     font-size: 25px;
 }
-

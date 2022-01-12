@@ -32,6 +32,9 @@ function createBookCard() {
     newBookCard.classList.add('bookCard');
     bookGrid.appendChild(newBookCard);
     
+    let bookInfo = document.createElement('div');
+    bookInfo.classList.add('bookInfo');
+
     let removeBtn = document.createElement('button');
     removeBtn.classList.add('removeBtn');
     removeBtn.innerHTML = 'Remove';
@@ -61,25 +64,32 @@ function createBookCard() {
     bookP.classList.add('bookPages')
     let bookR = document.createElement('div');
     bookR.classList.add('bookRead')
-    bookR.textContent = 'Read:';
+    let bookStyling = document.createElement('div');
+    bookStyling.classList.add('bookLook');
 
     let currentBook = myLibrary[0];
     
-    for (let k = 0; k < myLibrary.length; k++) {
-        bookT.textContent = 'Title: ' + currentBook.title;
-        bookA.textContent = 'Author: ' + currentBook.author;
-        bookP.textContent = 'Pages: ' + currentBook.pages;
-        newBookCard.appendChild(bookT);
-        newBookCard.appendChild(bookA);
-        newBookCard.appendChild(bookP);
-        newBookCard.appendChild(bookR);
-    }
+    if (currentBook.title == '' || currentBook.author == '' || currentBook.pages == '') {
+        bookGrid.removeChild(bookGrid.lastChild);
+        alert('ERROR - PLEASE TYPE BOOK TITLE, AUTHOR AND PAGES');
+    } else {
+        for (let k = 0; k < myLibrary.length; k++) {
+            bookT.textContent = currentBook.title;
+            bookA.textContent = 'by ' + currentBook.author;
+            bookP.textContent = 'Pages: ' + currentBook.pages;
+            bookR.textContent = 'Read:';
+            bookInfo.appendChild(bookT);
+            bookInfo.appendChild(bookA);
+            bookInfo.appendChild(bookP);
+            bookInfo.appendChild(bookR);
+            newBookCard.appendChild(bookStyling);
+            newBookCard.appendChild(bookInfo);
+        }
 
-    if (currentBook.doneReading == "yes") {
-        currentBook.readBook();
+        if (currentBook.doneReading == "yes") {
+            currentBook.readBook();
+        }
     }
-    console.log(currentBook);
-
 }
 
 function addToLibrary(book) {
@@ -96,18 +106,21 @@ submitBtn.addEventListener('click', () => {
 })
 
 openForm.addEventListener('click', () => {
-    formContainer.style.display = "block";
+    formContainer.style.display = "flex";
 })
 
 closeForm.addEventListener('click', () => {
     formContainer.style.display = "none";
 })
 
-//const theHungerGames = new Book('the Hunger Games', 'Suzanne Collins', '374', 'yes');
-//addToLibrary(theHungerGames);
 
-// const toKillAMockingbird = new Book('To Kill a Mockingbird', 'Harper Lee', '284', 'yes');
-// addToLibrary(toKillAMockingbird);
 
-//const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austenn', '384', 'no');
-//addToLibrary(prideAndPrejudice);
+const theHungerGames = new Book('the Hunger Games', 'Suzanne Collins', '374', 'yes');
+addToLibrary(theHungerGames);
+
+const toKillAMockingbird = new Book('To Kill a Mockingbird', 'Harper Lee', '284', 'yes');
+addToLibrary(toKillAMockingbird);
+
+const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austenn', '384', 'no');
+addToLibrary(prideAndPrejudice);
+
