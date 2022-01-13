@@ -1,5 +1,5 @@
 body {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h1 {
@@ -50,7 +50,7 @@ h2, .addBookBtn {
     height: 60%;
     width: 125px;
     padding: 10px;
-    background: rgb(241, 240, 240);
+    background: rgb(245, 241, 241);
     margin-top: 20px;
 }
 
@@ -65,22 +65,27 @@ h2, .addBookBtn {
 }
 
 .bookLook {
-    height: 250px;
+    height: 100%;
     width: 10px;
     background: linear-gradient(to right, rgb(55, 105, 48), rgb(113, 190, 103) 50%,rgb(113, 190, 103) 75%, rgb(65, 126, 57) 80%);
 }
 
 .addBookBtn {
-    width: 80px;
-    height: 20px;
+    width: 75px;
+    height: 25px;
+    padding: 3px 0;
 }
 
 .removeBtn {
-    width: 70px;
+    width: 60px;
     height: 20px;
     position: absolute;
     top: 220px;
     right: 12px;
+    color: #000000;
+    color: #000000;
+    color: #000000;
+    padding: 0 3px;
 }
 
 .bookRead {
@@ -123,32 +128,62 @@ h2, .addBookBtn {
     align-items: center;
 }
 
+.formTitle {
+    position: relative;
+    padding: 0 35px;
+    margin: 0 0 15px 0;
+}
+
 .addBookForm {
     background-color: white;
     font-size: 25px;
     border: solid 2px black;
-    margin: 20% auto;
-    width: 400px;
+    margin: 15% auto;
+    width: 350px;
     height: 900px;
+    display: flex;
     flex-wrap: wrap;
     justify-items: flex-start;
     align-items: center;
+    gap: 15px;
+    padding: 30px;
 }
 
-.formQuestions {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.q1, .q2, .q3, .q4 {
+.q4 {
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
+    height: 45px;
+}
+
+.formLabel, .q4 {
+    font-size: 20px;
+    padding: 2px;
+}
+
+::placeholder{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: grey;
+}
+
+.title, .author, .pages {
+    width: 350px;
+    height: 25px;
+    padding: 5px;
+    margin: 0;
+    border: solid 1px black;
 }
 
 .cancel {
     float: right;
     font-size: 25px;
+}
+
+.resetBtn, .submitBtn, .closeForm {
+    font-size: 16px;
+    padding: 4px;
+    height: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    font-family: inherit;
 }

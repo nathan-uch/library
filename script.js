@@ -121,6 +121,6 @@ addToLibrary(theHungerGames);
 const toKillAMockingbird = new Book('To Kill a Mockingbird', 'Harper Lee', '284', 'yes');
 addToLibrary(toKillAMockingbird);
 
-const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austenn', '384', 'no');
+const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austen', '384', 'no');
 addToLibrary(prideAndPrejudice);
 
