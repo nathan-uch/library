@@ -16,16 +16,19 @@ function doneReading() {
     for (let j = 0; j < yesOrNo.length; j++) {
         if (yesOrNo[j].checked) {
             return yesOrNo[j].value;
-        }
-    }
-}
+        };
+    };
+};
 
-function Book(title, author, pages, doneReading) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.doneReading = doneReading;
-}
+class Book {
+    constructor(title, author, pages, doneReading) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.doneReading = doneReading;
+    };
+    
+};
 
 function createBookCard() {
     let newBookCard = document.createElement('div');
@@ -54,7 +57,7 @@ function createBookCard() {
     
     Book.prototype.readBook = function() {
         readToggle.checked = true;
-    }
+    };
 
     let bookT = document.createElement('div');
     bookT.classList.add('bookTitle')
@@ -88,14 +91,14 @@ function createBookCard() {
 
         if (currentBook.doneReading == "yes") {
             currentBook.readBook();
-        }
-    }
-}
+        };
+    };
+};
 
 function addToLibrary(book) {
     myLibrary.unshift(book);
     createBookCard();
-}
+};
 
 submitBtn.addEventListener('click', () => {
     let newBook = new Book(title.value, author.value, pages.value, doneReading());
@@ -103,17 +106,15 @@ submitBtn.addEventListener('click', () => {
     addToLibrary(newBook);
     resetBtn.click();
     formContainer.style.display = "none";
-})
+});
 
 openForm.addEventListener('click', () => {
     formContainer.style.display = "flex";
-})
+});
 
 closeForm.addEventListener('click', () => {
     formContainer.style.display = "none";
-})
-
-
+});
 
 const theHungerGames = new Book('the Hunger Games', 'Suzanne Collins', '374', 'yes');
 addToLibrary(theHungerGames);
